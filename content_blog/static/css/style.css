@@ -3,7 +3,7 @@ html {
     min-height: 100%;
 }
 .bg-img{
-    background-image: url(../imagenes/a.jpg);
+    background-image: url(../img/a.jpg);
     background-position: center center;
     object-fit: cover;
 }
