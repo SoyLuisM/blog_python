@@ -1,0 +1,212 @@
+{% extends 'layout.html' %} 
+ 
+{% block content %}
+ <!-- //////////////////////////////////////////////// main  -->
+ <main class="pb-4">
+    <div id="carousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-pause="false">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          {% load static %}
+          <img src="{% static 'img/a.jpg'%}" class="d-block w-100  imagen" alt="a">
+        </div>
+        <div class="carousel-item">
+          <img src="{% static 'img/b.jpg'%}" class="d-block w-100  imagen" alt="b">
+        </div>
+        <div class="carousel-item">
+          <img src="{% static 'img/c.jpg'%}" class="d-block w-100  imagen" alt="c">
+        </div>
+        <div class="overlay">
+          <div class="container mt-4">
+            <div class="row">
+              <div class="col-lg-7 offset-lg-3">
+                <h1 class="h1"> Bienvenido al blog del equipo 7</h1>
+                <br>
+                <br>
+                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt felis id arcu condimentum, vel convallis nisi tristique. Nam molestie nunc erat, ut ullamcorper ante malesuada et. Proin egestas tempor viverra. Sed finibus dui quis egestas venenatis. Nunc blandit pulvinar malesuada. Donec dapibus erat lacinia quam lobortis, laoreet fermentum nisl.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+  <!-- //////////////////////////////////////////////// end main  -->
+
+  <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++cards -->
+  <section class="mt-4 pt-4 pb-4" >
+    <div class="container">
+      <div class="row row-cols-1 row-cols-md-4 g-5 pb-4">
+
+        <div class="col-3">
+          <div class="card">
+            <img src="{% static 'img/a.jpg'%}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Titulo</h5>
+              <span class="badge bg-primary">Jorge Martinez</span>
+              <br>
+              <span class="badge bg-warning text-dark ">categoria 1</span>
+              <span class="badge bg-warning text-dark">categoria 2</span>
+              <span class="badge bg-warning text-dark">categoria 3</span>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sollicitudin venenatis tortor vel convallis.
+              </p>
+              <div class="d-grid gap-2 col-6 mx-auto">
+                <button class="btn btn-success" type="button">Leer</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-3">
+          <div class="card">
+            <img src="{% static 'img/a.jpg'%}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Titulo</h5>
+              <span class="badge bg-primary">Jorge Martinez</span>
+              <br>
+              <span class="badge bg-warning text-dark ">categoria 1</span>
+              <span class="badge bg-warning text-dark">categoria 2</span>
+              <span class="badge bg-warning text-dark">categoria 3</span>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sollicitudin venenatis tortor vel convallis.
+              </p>
+              <div class="d-grid gap-2 col-6 mx-auto">
+                <button class="btn btn-success" type="button">Leer</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-3">
+          <div class="card">
+            <img src="{% static 'img/a.jpg'%}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Titulo</h5>
+              <span class="badge bg-primary">Jorge Martinez</span>
+              <br>
+              <span class="badge bg-warning text-dark ">categoria 1</span>
+              <span class="badge bg-warning text-dark">categoria 2</span>
+              <span class="badge bg-warning text-dark">categoria 3</span>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sollicitudin venenatis tortor vel convallis.
+              </p>
+              <div class="d-grid gap-2 col-6 mx-auto">
+                <button class="btn btn-success" type="button">Leer</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-3">
+          <div class="card">
+            <img src="{% static 'img/a.jpg'%}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Titulo</h5>
+              <span class="badge bg-primary">Jorge Martinez</span>
+              <br>
+              <span class="badge bg-warning text-dark ">categoria 1</span>
+              <span class="badge bg-warning text-dark">categoria 2</span>
+              <span class="badge bg-warning text-dark">categoria 3</span>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sollicitudin venenatis tortor vel convallis.
+              </p>
+              <div class="d-grid gap-2 col-6 mx-auto">
+                <button class="btn btn-success" type="button">Leer</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+
+      <div class="row row-cols-1 row-cols-md-4 g-5 pt-4">
+
+        <div class="col-3">
+          <div class="card">
+            <img src="{% static 'img/a.jpg'%}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Titulo</h5>
+              <span class="badge bg-primary">Jorge Martinez</span>
+              <br>
+              <span class="badge bg-warning text-dark ">categoria 1</span>
+              <span class="badge bg-warning text-dark">categoria 2</span>
+              <span class="badge bg-warning text-dark">categoria 3</span>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sollicitudin venenatis tortor vel convallis.
+              </p>
+              <div class="d-grid gap-2 col-6 mx-auto">
+                <button class="btn btn-success" type="button">Leer</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-3">
+          <div class="card">
+            <img src="{% static 'img/a.jpg'%}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Titulo</h5>
+              <span class="badge bg-primary">Jorge Martinez</span>
+              <br>
+              <span class="badge bg-warning text-dark ">categoria 1</span>
+              <span class="badge bg-warning text-dark">categoria 2</span>
+              <span class="badge bg-warning text-dark">categoria 3</span>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sollicitudin venenatis tortor vel convallis.
+              </p>
+              <div class="d-grid gap-2 col-6 mx-auto">
+                <button class="btn btn-success" type="button">Leer</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-3">
+          <div class="card">
+            <img src="{% static 'img/a.jpg'%}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Titulo</h5>
+              <span class="badge bg-primary">Jorge Martinez</span>
+              <br>
+              <span class="badge bg-warning text-dark ">categoria 1</span>
+              <span class="badge bg-warning text-dark">categoria 2</span>
+              <span class="badge bg-warning text-dark">categoria 3</span>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sollicitudin venenatis tortor vel convallis.
+              </p>
+              <div class="d-grid gap-2 col-6 mx-auto">
+                <button class="btn btn-success" type="button">Leer</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-3">
+          <div class="card">
+            <img src="{% static 'img/a.jpg'%}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Titulo</h5>
+              <span class="badge bg-primary">Jorge Martinez</span>
+              <br>
+              <span class="badge bg-warning text-dark ">categoria 1</span>
+              <span class="badge bg-warning text-dark">categoria 2</span>
+              <span class="badge bg-warning text-dark">categoria 3</span>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sollicitudin venenatis tortor vel convallis.
+              </p>
+              <div class="d-grid gap-2 col-6 mx-auto">
+                <button class="btn btn-success" type="button">Leer</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+
+    </div>
+  </section>
+  
+  
+  <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++end cards -->
+{% endblock %}
