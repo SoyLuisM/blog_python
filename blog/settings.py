@@ -130,6 +130,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
+
 EMAIL_HOST = config.mail['host']
 EMAIL_PORT = config.mail['port']
 EMAIL_HOST_USER = config.mail['user']
