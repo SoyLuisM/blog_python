@@ -21,10 +21,11 @@ from user_profile import views as profile_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',content_views.home),
-    path("autores",content_views.autores),
-    path("busqueda",content_views.busqueda),
-    path("login", profile_views.login),
-    path("registro", profile_views.registro),
-    path("recuperacion", profile_views.recuperacion),
-    path("mejor-puntuados", content_views.m_puntuados),
+    path("autores/",content_views.autores),
+    path("busqueda/",content_views.busqueda),
+    path("login/", profile_views.login),
+    path("registro/", profile_views.registro),
+    path("registro/<uuid:id>/", profile_views.confirmacion),
+    path("recuperacion/", profile_views.recuperacion),
+    path("mejor-puntuados/", content_views.m_puntuados),
 ]
