@@ -8,33 +8,38 @@
             <div class="col bg-img d-none d-lg-block col-md-5 col-xl-6"></div>
 
             <div class="col rounded-end">
-                <div id="succes" class="alert alert-success text-center d-none" role="alert">
-                    <h5>Se envió un correo de confirmación</h5>
+                {% if error %}
+                <div id="error" class="alert alert-danger text-center" role="alert">
+                    <h5>{{ error }}</h5>
                 </div>
-                <div id="error" class="alert alert-danger text-center d-none" role="alert">
-                    <h5>Ocurrio un error</h5>
+                {% endif %}
+                {% if succes %}
+                <div id="succes" class="alert alert-success text-center" role="alert">
+                    <h5>{{ succes }}</h5>
                 </div>
+                {% endif%}
                 <div class="text-end">
                     <h3>Equipo 7</h3>
                 </div>
                 <h2 class="fw-bold text-center">Registrate</h2>
 
-                <form action="#">
+                <form action="/registro" method="POST">
+                    {% csrf_token %}
                     <div class="mb-4">
                         <label for="email" class="form-label">Correo electronico</label>
-                        <input type="email" class="form-control">
+                        <input type="email" name="email" class="form-control">
                     </div>
                     <div class="mb-4">
                       <label for="Nombre" class="form-label">Nombre</label>
-                      <input type="Nombre" class="form-control">
+                      <input type="Nombre" class="form-control" name="nombre">
                     </div>
                     <div class="mb-4">
                       <label for="a_paterno" class="form-label">Apellido Paterno</label>
-                      <input type="a_paterno" class="form-control">
+                      <input type="a_paterno" class="form-control" name="a_paterno">
                     </div>
                     <div class="mb-4">
-                      <label for="a_materno" class="form-label">Apellido Materno</label>
-                      <input type="a_materno" class="form-control">
+                      <label for="a_materno" class="form-label" >Apellido Materno</label>
+                      <input type="a_materno" class="form-control" name="a_materno">
                     </div>
                     <div class="d-grid">
                         <button type="submit" id="enviar" class="btn btn-primary">Registrar</button>

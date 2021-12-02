@@ -16,14 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from content_blog import views as content_views
+from user_profile import views as profile_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',content_views.home),
     path("autores",content_views.autores),
     path("busqueda",content_views.busqueda),
-    path("login", content_views.login),
-    path("registro", content_views.registro),
-    path("recuperacion", content_views.recuperacion),
+    path("login", profile_views.login),
+    path("registro", profile_views.registro),
+    path("recuperacion", profile_views.recuperacion),
     path("mejor-puntuados", content_views.m_puntuados),
 ]
