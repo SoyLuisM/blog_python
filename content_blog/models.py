@@ -4,18 +4,26 @@ import uuid
 
 class post(models.Model):
     id = models.UUIDField(primary_key=True,default=uuid.uuid4)
+    titulo = models.CharField(max_length=60,default='Desconocido')
     contenido = models.TextField()
     fecha_modificacion = models.DateTimeField(auto_now=True)
     fecha_creacion = models.DateTimeField(auto_now_add=True)
-    img = models.CharField(max_length=100)
+    img = models.FileField(upload_to='uploads/')
+    status = models.BooleanField(default=False)
 
-
-class categorias_post(models.Model):
-    id_categorias = models.ForeignKey('catalogo_categorias',on_delete=models.CASCADE)
-    id_post = models.ForeignKey('post',on_delete=models.CASCADE)
-
+    # def __str__(self):
+    #     return {
+    #         "id": self.id,
+    #         "titulo": self.titulo,
+    #         "contenido": self.contenido,
+    #         "img": self.img,
+    #     }
 
 class catalogo_categorias(models.Model):
-    nombre = models.CharField(max_length=40)
-    descripcion = models.CharField(max_length=60)
+    nombre = models.CharField(max_length=60)
+    descripcion = models.CharField(max_length=100)
     status = models.BooleanField(default=True)
+    categorias = models.ManyToManyField(post, related_name='posts')
+
+    def __str__(self):
+        return self.nombre

@@ -18,7 +18,7 @@ from django.urls import path
 from content_blog import views as content_views
 
 urlpatterns = [
-    # path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls),
     path('',content_views.home),
     path("autores",content_views.autores),
     path("busqueda",content_views.busqueda),
