@@ -130,12 +130,15 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+#esto me permite usar un modelo personalizado del usuario
 AUTH_USER_MODEL = 'user_profile.profile'
 
+#esta variable congigura la ubicación de los estaticos en la raiz del proyecto
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
+#configuracion para enviar email
 EMAIL_HOST = config.mail['host']
 EMAIL_PORT = config.mail['port']
 EMAIL_HOST_USER = config.mail['user']
