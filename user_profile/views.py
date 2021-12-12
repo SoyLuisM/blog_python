@@ -1,10 +1,23 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from user_profile.send_email import send_mail
 from user_profile import querys
 from user_profile import utilities
 import uuid
+from django.contrib.auth import authenticate
+from django.contrib.auth import login as login_user
 
 def login(request):
+    if request.method == 'POST':
+        username =  request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request,username= username, password = password)
+        if user is not None:
+            print('ok')
+            login_user(request, user)
+            return redirect('/')
+        else:
+            return render(request, "login.html",{'error':'algo salio mal'})
+    
     return render(request, "login.html")
 
 def recuperacion(request):

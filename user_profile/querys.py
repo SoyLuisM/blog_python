@@ -21,6 +21,7 @@ def confirm_user(data):
     up_user.username = data['nickname']
     up_user.set_password(data['password'])
     up_user.genero = data['genero']
+    up_user.is_active = True
     # up_user.is_active = True
     up_user.save()
 

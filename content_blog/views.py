@@ -5,10 +5,10 @@ from content_blog.models import post
 # Create your views here.
 def home(request):
     """renderiza el home del sistema""" 
-    posts = post.objects.all().order_by('fecha_creacion')
-    posts = posts[::-1]
-    posts = posts[0:4]
-    
+    posts = post.objects.all()
+    # posts = posts[::-1]
+    # posts = posts[0:4]
+    print(post)
     return render(request,'home.html',{'posts':posts})
 
 def autores(request):
