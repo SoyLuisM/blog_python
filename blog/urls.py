@@ -31,5 +31,6 @@ urlpatterns = [
     path("registro/", profile_views.registro),
     path("registro/<uuid:id>/", profile_views.confirmacion),
     path("recuperacion/", profile_views.recuperacion),
+    path("logout/", profile_views.logout_user),
     
 ]

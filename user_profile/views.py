@@ -3,8 +3,15 @@ from user_profile.send_email import send_mail
 from user_profile import querys
 from user_profile import utilities
 import uuid
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate, logout
 from django.contrib.auth import login as login_user
+from django.contrib.auth.decorators import login_required
+
+@login_required
+def logout_user(request):
+    print('hola')
+    logout(request)
+    return redirect('/')
 
 def login(request):
     if request.method == 'POST':
