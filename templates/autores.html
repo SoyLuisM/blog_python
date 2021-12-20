@@ -9,12 +9,7 @@
           {% load static %}
           <img src="{% static 'img/a.jpg'%}" class="d-block w-100  imagen" alt="a">
         </div>
-        <div class="carousel-item">
-          <img src="{% static 'img/b.jpg'%}" class="d-block w-100  imagen" alt="b">
-        </div>
-        <div class="carousel-item">
-          <img src="{% static 'img/a.jpg'%}" class="d-block w-100  imagen" alt="c">
-        </div>
+        
         <div class="overlay">
           <div class="container py-5">
             <div class="row">
@@ -42,13 +37,14 @@
       <div class="container">
         <div class="row row-cols-1 row-cols-md-4 g-5 pb-4">
   
+          {% for autor in autores %}
           <div class="col-3">
             <div class="card">
               
               <img src="{% static 'img/a.jpg'%}" class="autor-img align-self-center mt-4 rounded-circle" alt="...">
               
               <div class="card-body">
-                <h5 class="card-title text-center">Nombre del autor</h5>
+                <h5 class="card-title text-center">{{ autor.nombre }}</h5>
                 <br>
                 <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sollicitudin venenatis tortor vel convallis.
                 </p>
@@ -58,138 +54,9 @@
               </div>
             </div>
           </div>
+          {% endfor%}
 
-          <div class="col-3">
-            <div class="card">
-              
-              <img src="{% static 'img/a.jpg'%}" class="autor-img align-self-center mt-4 rounded-circle" alt="...">
-              
-              <div class="card-body">
-                <h5 class="card-title text-center">Nombre del autor</h5>
-                <br>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sollicitudin venenatis tortor vel convallis.
-                </p>
-                <div class="d-grid gap-2 col-6 mx-auto">
-                  <button class="btn btn-success" type="button">Leer post</button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-3">
-            <div class="card">
-              
-              <img src="{% static 'img/a.jpg'%}" class="autor-img align-self-center mt-4 rounded-circle" alt="...">
-              
-              <div class="card-body">
-                <h5 class="card-title text-center">Nombre del autor</h5>
-                <br>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sollicitudin venenatis tortor vel convallis.
-                </p>
-                <div class="d-grid gap-2 col-6 mx-auto">
-                  <button class="btn btn-success" type="button">Leer post</button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-3">
-            <div class="card">
-              
-              <img src="{% static 'img/a.jpg'%}" class="autor-img align-self-center mt-4 rounded-circle" alt="...">
-              
-              <div class="card-body">
-                <h5 class="card-title text-center">Nombre del autor</h5>
-                <br>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sollicitudin venenatis tortor vel convallis.
-                </p>
-                <div class="d-grid gap-2 col-6 mx-auto">
-                  <button class="btn btn-success" type="button">Leer post</button>
-                </div>
-              </div>
-            </div>
-          </div>
-  
-  
         </div>
-  
-
-
-        <div class="row row-cols-1 row-cols-md-4 g-5 pb-4">
-  
-          <div class="col-3">
-            <div class="card">
-              
-              <img src="{% static 'img/a.jpg'%}" class="autor-img align-self-center mt-4 rounded-circle" alt="...">
-              
-              <div class="card-body">
-                <h5 class="card-title text-center">Nombre del autor</h5>
-                <br>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sollicitudin venenatis tortor vel convallis.
-                </p>
-                <div class="d-grid gap-2 col-6 mx-auto">
-                  <button class="btn btn-success" type="button">Leer post</button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-3">
-            <div class="card">
-              
-              <img src="{% static 'img/a.jpg'%}" class="autor-img align-self-center mt-4 rounded-circle" alt="...">
-              
-              <div class="card-body">
-                <h5 class="card-title text-center">Nombre del autor</h5>
-                <br>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sollicitudin venenatis tortor vel convallis.
-                </p>
-                <div class="d-grid gap-2 col-6 mx-auto">
-                  <button class="btn btn-success" type="button">Leer post</button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-3">
-            <div class="card">
-              
-              <img src="{% static 'img/a.jpg'%}" class="autor-img align-self-center mt-4 rounded-circle" alt="...">
-              
-              <div class="card-body">
-                <h5 class="card-title text-center">Nombre del autor</h5>
-                <br>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sollicitudin venenatis tortor vel convallis.
-                </p>
-                <div class="d-grid gap-2 col-6 mx-auto">
-                  <button class="btn btn-success" type="button">Leer post</button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-3">
-            <div class="card">
-              
-              <img src="{% static 'img/a.jpg'%}" class="autor-img align-self-center mt-4 rounded-circle" alt="...">
-              
-              <div class="card-body">
-                <h5 class="card-title text-center">Nombre del autor</h5>
-                <br>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sollicitudin venenatis tortor vel convallis.
-                </p>
-                <div class="d-grid gap-2 col-6 mx-auto">
-                  <button class="btn btn-success" type="button">Leer post</button>
-                </div>
-              </div>
-            </div>
-          </div>
-  
-  
-        </div>
-
-        
-
   
       </div>
   </main>

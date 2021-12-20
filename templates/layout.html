@@ -57,8 +57,9 @@
               {% endif %}
 
             </ul>
-            <form class="d-flex" action="/busqueda">
-              <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+            <form class="d-flex" action="/busqueda/" method="POST">
+              {% csrf_token %}
+              <input class="form-control me-2" name="busqueda" type="search" placeholder="Buscar" aria-label="Search">
               <button class="btn btn-outline-success" type="submit">Buscar</button>
             </form>
           </div>

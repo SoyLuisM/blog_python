@@ -4,11 +4,47 @@
 
   <!-- //////////////////////////////////////////////// main  -->
   <main>
+    {% load static %}
     <div class="container">
         <div class="row justify-content-center mt-5">
           <div class="col-md-12 text-center">
             <!-- <span class="display-1 d-block">404</span> -->
-            <div class="mb-4 lead">Su búsqueda no produjo ningún resultado</div>
+            {% if resultados %}
+            <div class="container">
+              <div class="row row-cols-1 row-cols-md-4 g-5 pb-4">
+                {% for resultado in resultados %}
+           
+                <div class="col-3">
+                  <div class="card ">
+                    <img src="http://192.168.100.20/static/{{resultado.img}}" class="card-img-top" alt="...">
+                    
+                    <div class="card-body">
+                      <h5 class="card-title">{{resultado.titulo}}</h5>
+                      <span class="badge bg-primary">{{resultado.autor}}</span>
+                      <br>
+                      {% for cat in resultado.posts.all %}
+                      <span class="badge bg-warning text-dark ">{{cat}}</span>
+                      {% endfor %}
+                      
+                      <p class="card-text">{{resultado.contenido}}</p>
+                      <div class="d-grid gap-2 col-6 mx-auto">
+                        <button class="btn btn-success" type="button" onclick="">Leer</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+        
+              </div>
+        
+        
+              
+        
+        
+            </div>
+            {% else %}
+              <div class="mb-4 lead">Su búsqueda no produjo ningún resultado</div>
+            {% endif%}
             <a href="/" class="btn btn-link">Vuelve al Home</a>
           </div>
         </div>
