@@ -8,8 +8,9 @@ class post(models.Model):
     contenido = models.TextField()
     fecha_modificacion = models.DateTimeField(auto_now=True)
     fecha_creacion = models.DateTimeField(auto_now_add=True)
-    img = models.FileField(upload_to='uploads/')
+    img = models.FileField(upload_to='img/')
     status = models.BooleanField(default=False)
+    autor = models.ForeignKey('user_profile.profile',on_delete= models.CASCADE, related_name='autor',default=1)
 
     # def __str__(self):
     #     return {

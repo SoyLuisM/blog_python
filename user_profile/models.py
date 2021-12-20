@@ -7,12 +7,13 @@ import uuid
 # el resto del contenido se podia conservar
 class profile(AbstractUser):
     """Define el modelo del usuario, hereda de AbstractUser y elimina algunos campos"""
+    
     first_name = None
     last_name = None
     nombre = models.CharField(max_length=100,blank=True)
     a_paterno = models.CharField(max_length=100, blank=True)
     a_materno = models.CharField(max_length=100,blank=True)
-    img = models.ImageField(upload_to = 'user/', max_length = 100, blank= True)
+    img = models.ImageField(upload_to = 'user/', blank= True, null = True)
     clave_confirmacion = models.UUIDField(default=uuid.uuid4,editable=False)
     genero = models.CharField(max_length=20, default='Prefiero no decirlo',blank=True)
 

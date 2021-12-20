@@ -8,6 +8,12 @@
             <div class="col bg-img d-none d-lg-block col-md-5 col-xl-6"></div>
 
             <div class="col rounded-end">
+                {% if error %}
+                <div id="error" class="alert alert-danger text-center" role="alert">
+                    <h5>{{ error }}</h5>
+                </div>
+                {% endif %}
+                
                 <div class="text-end">
                     <h3>Equipo 7</h3>
                 </div>

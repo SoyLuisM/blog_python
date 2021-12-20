@@ -60,3 +60,7 @@ body {
 #sidebar-container .menu{
     width: 18rem;
 }
+
+.form-post {
+    max-width: 80vh;
+}

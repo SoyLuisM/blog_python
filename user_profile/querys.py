@@ -4,7 +4,8 @@ def create_user(correo, nombre, a_paterno, a_materno,clave):
     try:
         new_user = user.objects.create(
             email=correo, 
-            nombre = nombre, 
+            nombre = nombre,
+            username = nombre, 
             a_paterno = a_paterno,
             a_materno = a_materno,
             clave_confirmacion = clave,

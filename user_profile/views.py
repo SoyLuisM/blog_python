@@ -7,6 +7,7 @@ from django.contrib.auth import authenticate, logout
 from django.contrib.auth import login as login_user
 from django.contrib.auth.decorators import login_required
 from content_blog.models import post as post_models
+from content_blog.models import catalogo_categorias as cat
 
 @login_required
 def logout_user(request):
@@ -102,23 +103,48 @@ def profile_user(request,user):
 
 @login_required
 def create_post(request,user,action):
+    # profile = request.user.a_paterno
+    # print(profile)
     if request.method == 'POST':
-        nuevo = post_models(
-            titulo = request.POST['titulo'],
-            contenido = request.POST['contenidopost'],
-            img = request.POST['imgen-post'],
-            status = True,
-        )
-        nuevo.save()
-        print(request.POST['titulo'])
-        print(request.POST['contenidopost'])
-        print(request.POST['imgen-post'])
+        categorias = cat.objects.all()
+        # print(request.POST['img'])
+        try:
+            
+            datos = {
+            'titulo' : request.POST['titulo'],
+            # 'img' : request.POST['img'],
+            'categorias' : request.POST['categorias'],
+            'contenido' : request.POST['contenido'],
+            # 'usuario' : request.user.username,
+            }
+            if utilities.datos_completos(datos):
+                new_post= post_models(
+                    titulo = datos['titulo'],
+                    contenido = datos['contenido'],
+                    img = request.FILES['img'],
+                    status = True,
+                    autor = request.user
+                )
+                post_cat = cat.objects.get(nombre = request.POST['categorias'])
+                print(post_cat.nombre)
+                new_post.save()
+                post_cat.categorias.add(new_post)
+                return redirect('/')
+            else:
+                raise('datos incompletos')
+        except:
+            return render(request,"user_profile_create_post.html",{
+                'categorias':categorias,
+                'error': "datos incompletos"
+            })
+        
 
     if not action:
         return render(request,"user_profile.html")
     
     if action == 'crearpost':
-        return render(request,"user_profile_create_post.html")
+        categorias = cat.objects.all()
+        return render(request,"user_profile_create_post.html",{'categorias':categorias})
     elif action == "update":
         return render(request,"user_profile_actualizar_datos.html")
     elif action == "mispost":
