@@ -150,7 +150,9 @@ DOMINIO = config.dominio
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_URL = 'login/'
+LOGIN_URL = 'http://192.168.100.20/login/'
 
 MEDIA_URL = "/img/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "static")
+
+# STATIC_ROOT = os.path.join(BASE_DIR, "static")

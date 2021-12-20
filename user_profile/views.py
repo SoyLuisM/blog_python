@@ -105,47 +105,60 @@ def profile_user(request,user):
 def create_post(request,user,action):
     # profile = request.user.a_paterno
     # print(profile)
-    if request.method == 'POST':
-        categorias = cat.objects.all()
-        # print(request.POST['img'])
-        try:
-            
-            datos = {
-            'titulo' : request.POST['titulo'],
-            # 'img' : request.POST['img'],
-            'categorias' : request.POST['categorias'],
-            'contenido' : request.POST['contenido'],
-            # 'usuario' : request.user.username,
-            }
-            if utilities.datos_completos(datos):
-                new_post= post_models(
-                    titulo = datos['titulo'],
-                    contenido = datos['contenido'],
-                    img = request.FILES['img'],
-                    status = True,
-                    autor = request.user
-                )
-                post_cat = cat.objects.get(nombre = request.POST['categorias'])
-                print(post_cat.nombre)
-                new_post.save()
-                post_cat.categorias.add(new_post)
-                return redirect('/')
-            else:
-                raise('datos incompletos')
-        except:
-            return render(request,"user_profile_create_post.html",{
-                'categorias':categorias,
-                'error': "datos incompletos"
-            })
-        
-
+    
     if not action:
         return render(request,"user_profile.html")
     
     if action == 'crearpost':
+        if request.method == 'POST':
+            categorias = cat.objects.all()
+            # print(request.POST['img'])
+            try:
+                
+                datos = {
+                'titulo' : request.POST['titulo'],
+                # 'img' : request.POST['img'],
+                'categorias' : request.POST['categorias'],
+                'contenido' : request.POST['contenido'],
+                # 'usuario' : request.user.username,
+                }
+                if utilities.datos_completos(datos):
+                    new_post= post_models(
+                        titulo = datos['titulo'],
+                        contenido = datos['contenido'],
+                        img = request.FILES['img'],
+                        status = True,
+                        autor = request.user
+                    )
+                    post_cat = cat.objects.get(nombre = request.POST['categorias'])
+                    print(post_cat.nombre)
+                    new_post.save()
+                    post_cat.categorias.add(new_post)
+                    return redirect('/')
+                else:
+                    raise('datos incompletos')
+            except:
+                return render(request,"user_profile_create_post.html",{
+                    'categorias':categorias,
+                    'error': "datos incompletos"
+                })
         categorias = cat.objects.all()
         return render(request,"user_profile_create_post.html",{'categorias':categorias})
     elif action == "update":
+        
+        if request.method == 'POST':
+            try:
+                if request.FILES['img']:
+                    request.user.img = request.FILES['img']
+                    print('viene una imagen')
+            except:
+                print('no viene imagen')
+
+            request.user.nombre = request.POST['nombre']
+            request.user.a_paterno = request.POST['a_paterno']
+            request.user.a_materno = request.POST['a_materno']
+            request.user.comentario = request.POST['comentario']
+            request.user.save()
         return render(request,"user_profile_actualizar_datos.html")
     elif action == "mispost":
         mis_post = post_models.objects.filter(autor = request.user)

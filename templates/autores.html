@@ -46,10 +46,13 @@
               <div class="card-body">
                 <h5 class="card-title text-center">{{ autor.nombre }}</h5>
                 <br>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sollicitudin venenatis tortor vel convallis.
+                <p class="card-text">
+                {% if autor.comentario %}
+                  {{autor.comentario}}
+                {% endif%}
                 </p>
                 <div class="d-grid gap-2 col-6 mx-auto">
-                  <button class="btn btn-success" type="button">Leer post</button>
+                  <button class="btn btn-success" type="button">Ver post</button>
                 </div>
               </div>
             </div>

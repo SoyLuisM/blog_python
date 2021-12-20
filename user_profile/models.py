@@ -16,6 +16,7 @@ class profile(AbstractUser):
     img = models.ImageField(upload_to = 'user/', blank= True, null = True)
     clave_confirmacion = models.UUIDField(default=uuid.uuid4,editable=False)
     genero = models.CharField(max_length=20, default='Prefiero no decirlo',blank=True)
+    comentario = models.TextField(blank= True, null = True)
 
     # class Meta(AbstractUser.Meta):
     #     swappable = 'AUTH_USER_MODEL'
