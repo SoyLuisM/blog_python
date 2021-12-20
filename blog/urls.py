@@ -32,5 +32,8 @@ urlpatterns = [
     path("registro/<uuid:id>/", profile_views.confirmacion),
     path("recuperacion/", profile_views.recuperacion),
     path("logout/", profile_views.logout_user),
+    path("user/<str:user>",profile_views.profile_user),
+    path("user/<str:user>/<str:action>/", profile_views.create_post),
+    
     
 ]

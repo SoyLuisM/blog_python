@@ -6,6 +6,7 @@ import uuid
 from django.contrib.auth import authenticate, logout
 from django.contrib.auth import login as login_user
 from django.contrib.auth.decorators import login_required
+from content_blog.models import post as post_models
 
 @login_required
 def logout_user(request):
@@ -58,6 +59,7 @@ def confirmacion(request,id):
                     'error':'nickname en uso',
                 })
             querys.confirm_user(data)
+            return redirect('/')
 
         else:
             return render(request, "confirmacion.html",{
@@ -93,3 +95,36 @@ def registro(request):
             return render(request, "registro.html",{'error':'datos incompletos'})
 
     return render(request, "registro.html")
+
+@login_required
+def profile_user(request,user):
+    return render(request,"user_profile_home.html")
+
+@login_required
+def create_post(request,user,action):
+    if request.method == 'POST':
+        nuevo = post_models(
+            titulo = request.POST['titulo'],
+            contenido = request.POST['contenidopost'],
+            img = request.POST['imgen-post'],
+            status = True,
+        )
+        nuevo.save()
+        print(request.POST['titulo'])
+        print(request.POST['contenidopost'])
+        print(request.POST['imgen-post'])
+
+    if not action:
+        return render(request,"user_profile.html")
+    
+    if action == 'crearpost':
+        return render(request,"user_profile_create_post.html")
+    elif action == "update":
+        return render(request,"user_profile_actualizar_datos.html")
+    elif action == "mispost":
+        return render(request,"user_profile_mis_post.html")
+    else:
+        return render(request,"404.html")
+    
+
+    

@@ -51,3 +51,12 @@ body {
     width: 10rem;
     height: 10rem;
 }
+#sidebar-container {
+    min-height: 100vh;
+}
+#sidebar-container .logo{
+    padding: .875rem 1.25rem;
+}
+#sidebar-container .menu{
+    width: 18rem;
+}
