@@ -148,7 +148,8 @@ def create_post(request,user,action):
     elif action == "update":
         return render(request,"user_profile_actualizar_datos.html")
     elif action == "mispost":
-        return render(request,"user_profile_mis_post.html")
+        mis_post = post_models.objects.filter(autor = request.user)
+        return render(request,"user_profile_mis_post.html",{'resultados':mis_post})
     else:
         return render(request,"404.html")
     

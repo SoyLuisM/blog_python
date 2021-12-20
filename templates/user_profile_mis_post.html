@@ -1,7 +1,41 @@
 {% extends 'user_profile.html' %} 
 
 {% block actividad %}
-<div class="col">
-    <h1 class="fw-bold my-5">mis post en construccion</h1>
-</div>
+<div class="col-9 text-center my-5">
+    <!-- <span class="display-1 d-block">404</span> -->
+    {% if resultados %}
+        <div class="container">
+        <div class="row row-cols-1 row-cols-md-4 g-5 pb-4">
+            {% for resultado in resultados %}
+    
+            <div class="col-3">
+            <div class="card ">
+                <img src="http://192.168.100.20/static/{{resultado.img}}" class="card-img-top" alt="...">
+                
+                <div class="card-body">
+                <h5 class="card-title">{{resultado.titulo}}</h5>
+                <span class="badge bg-primary">{{resultado.autor}}</span>
+                <br>
+                {% for cat in resultado.posts.all %}
+                <span class="badge bg-warning text-dark ">{{cat}}</span>
+                {% endfor %}
+                
+                <p class="card-text">{{resultado.contenido}}</p>
+                <div class="d-grid gap-2 col-6 mx-auto">
+                    <button class="btn btn-success" type="button" onclick="">Leer</button>
+                </div>
+                </div>
+            </div>
+            </div>
+            {% endfor %}
+
+        </div>
+
+        </div>
+    {% else %}
+      <div class="mb-4 lead">No tiene ningun post</div>
+      <a href="http://192.168.100.20/user/{{ user.username }}/crearpost/" class="btn btn-link">Crear uno</a>
+    {% endif%}
+    
+  </div>
 {% endblock %}

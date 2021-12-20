@@ -135,7 +135,7 @@ AUTH_USER_MODEL = 'user_profile.profile'
 
 #esta variable congigura la ubicación de los estaticos en la raiz del proyecto
 STATICFILES_DIRS = [
-    BASE_DIR / "static",
+    os.path.join(BASE_DIR, 'static'),
 ]
 
 #configuracion para enviar email
