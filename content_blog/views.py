@@ -7,8 +7,11 @@ from user_profile.models import profile
 def home(request):
     """renderiza el home del sistema""" 
     posts = post.objects.all()
-    # posts = posts[::-1]
-    # posts = posts[0:4]
+    try:
+        posts = posts[::-1]
+        posts = posts[0:8]
+    except:
+        pass
     print(post)
     return render(request,'home.html',{'posts':posts})
 
@@ -30,3 +33,14 @@ def busqueda(request):
 
 def m_puntuados(request):
     return render(request,"m_puntuados.html")
+
+def leer_post(request,id_post):
+    try:
+        l_post = post.objects.get(id = id_post)
+        return render(request,"leer_post.html",{'post':l_post})
+    except:
+        return render(request,"404.html")
+
+def ver_post_autor(request,id_autor):
+    post_user = post.objects.filter(autor=id_autor)
+    return render(request,"ver_post_autores.html",{'posts':post_user})

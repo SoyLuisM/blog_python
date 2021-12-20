@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<main>
+    <div id="carousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-pause="false">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="http://192.168.100.20/static/{{ post.img }}" class="d-block w-100  imagen" alt="a">
+          </div>
+
+          <div class="overlay">
+            <div class="container mt-4">
+              <div class="row">
+                <div class="col-lg-7 offset-lg-3">
+                  <h1 class="h1"> {{post.titulo}}</h1>
+                  <br>
+                  <br>
+                  <p class="lead">{{post.contenido}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+</main>
+{% endblock%}

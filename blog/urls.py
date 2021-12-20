@@ -26,6 +26,8 @@ urlpatterns = [
     path("autores/",content_views.autores),
     path("busqueda/",content_views.busqueda),
     path("mejor-puntuados/", content_views.m_puntuados),
+    path("post/<str:id_post>/", content_views.leer_post),
+    path("autor/<str:id_autor>/", content_views.ver_post_autor),
     #urls para usuarios
     path("login/", profile_views.login),
     path("registro/", profile_views.registro),
